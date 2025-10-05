@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    The main entry point for the Spice Bite restaurant website.  This
+    document lays out the structure of the page, dividing the site into
+    several clearly defined sections: a hero banner, an about area, a
+    featured menu grid and a contact section.  Each section is marked
+    with an id so links in the navigation bar can scroll to it.  The
+    accompanying stylesheet (style.css) handles the visual design and
+    responsiveness.
+  -->
+  <title>Spice Bite | A Veggie's Delight in Dubai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top of page including hero background and navigation -->
+  <header id="home">
+    <nav class="navbar">
+      <!-- Display the restaurant logo image instead of text.  The alt text
+           provides accessibility and will be read out by screen readers. -->
+      <div class="logo">
+        <img src="images/logo.png" alt="Spice Bite logo">
+      </div>
+      <!-- Checkbox hack for responsive navigation -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+        <span></span>
+      </label>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Spice Bite</h1>
+      <!-- Use the tagline from the logo and mention the location -->
+      <p>A Veggie's Delight in Dubai</p>
+      <!-- Call‑to‑action buttons: Our Menu and Order Now appear side‑by‑side.
+           The order button includes a drop‑down list of food delivery platforms. -->
+      <div class="hero-buttons">
+        <a href="#menu" class="btn menu-btn">Our Menu</a>
+        <div class="order-wrapper">
+          <button type="button" class="order-btn">Order Now</button>
+          <div class="order-options">
+            <a href="https://food.noon.com" target="_blank" rel="noopener noreferrer">Order on Noon Food</a>
+            <a href="https://www.talabat.com/uae" target="_blank" rel="noopener noreferrer">Order on Talabat</a>
+            <a href="https://deliveroo.ae" target="_blank" rel="noopener noreferrer">Order on Deliveroo</a>
+            <a href="https://www.etisalat.ae/en/smiles" target="_blank" rel="noopener noreferrer">Order on Smiles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About section describing the restaurant -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      Spice Bite is a pure vegetarian restaurant located in the heart of Dubai.
+      Our menu combines traditional Indian favourites with modern twists and Chinese
+      delights. We pride ourselves on using fresh, high‑quality ingredients
+      prepared in a hygienic environment. Whether you’re craving quick bites,
+      hearty mains or sweet endings, Spice Bite offers something special for every
+      vegetarian food lover.
+    </p>
+  </section>
+
+  <!-- Gallery section showcasing some of the restaurant's popular dishes. Each
+       image is accompanied by a short caption. -->
+  <section id="gallery" class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <figure>
+        <img src="images/parathas.png" alt="Stuffed parathas">
+        <figcaption>Stuffed Parathas</figcaption>
+      </figure>
+      <figure>
+        <img src="images/feast.png" alt="Indian main course">
+        <figcaption>Main Course Feast</figcaption>
+      </figure>
+      <figure>
+        <img src="images/pav_bhaji.png" alt="Pav Bhaji">
+        <figcaption>Pav Bhaji</figcaption>
+      </figure>
+      <figure>
+        <img src="images/drinks.png" alt="Assorted drinks">
+        <figcaption>Assorted Drinks</figcaption>
+      </figure>
+      <figure>
+        <img src="images/thali.png" alt="Traditional thali">
+        <figcaption>South Indian Thali</figcaption>
+      </figure>
+      <figure>
+        <img src="images/dessert.png" alt="Gulab Jamun dessert">
+        <figcaption>Sweet Desserts</figcaption>
+      </figure>
+
+      <!-- Additional images representing more of our signature dishes -->
+      <figure>
+        <img src="images/chole_bhature.png" alt="Chole Bhature">
+        <figcaption>Chole Bhature</figcaption>
+      </figure>
+      <figure>
+        <img src="images/poha.png" alt="Poha">
+        <figcaption>Poha</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Menu section showing sample categories and dishes.  Items and prices
+       are taken from the attached menu.  Feel free to edit the lists or
+       replace the placeholder images in the images/ folder with your own. -->
+  <section id="menu" class="menu">
+    <h2>Menu</h2>
+    <div class="menu-grid">
+      <!-- Quick Bites card -->
+      <div class="menu-card">
+        <img src="images/snack.jpg" alt="Quick Bites and Snacks">
+        <div class="card-content">
+          <h3>Quick Bites &amp; Snacks</h3>
+          <ul>
+            <li>Poha — <span>AED 14</span></li>
+            <li>Chole Bhature — <span>AED 22</span></li>
+            <li>Paneer Pakoda — <span>AED 17</span></li>
+            <li>Chaat Platter — <span>AED 17</span></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <!-- Main Course card -->
+      <div class="menu-card">
+        <img src="images/main.jpg" alt="Indian Main Course">
+        <div class="card-content">
+          <h3>Main Course</h3>
+          <ul>
+            <li>Paneer Butter Masala — <span>AED 30</span></li>
+            <li>Dal Makhani — <span>AED 30</span></li>
+            <li>Veg Kolhapuri — <span>AED 24</span></li>
+            <li>Veg Biryani — <span>AED 22</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Chinese Specials card -->
+      <div class="menu-card">
+        <img src="images/chinese.jpg" alt="Chinese Specials">
+        <div class="card-content">
+          <h3>Chinese Specials</h3>
+          <ul>
+            <li>Paneer Chilli (Dry) — <span>AED 26</span></li>
+            <li>Veg Manchurian — <span>AED 26</span></li>
+            <li>Veg Hakka Noodles — <span>AED 24</span></li>
+            <li>Veg Fried Rice — <span>AED 24</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sweet Endings card -->
+      <div class="menu-card">
+        <img src="images/hero.jpg" alt="Sweet Endings">
+        <div class="card-content">
+          <h3>Sweet Endings</h3>
+          <ul>
+            <li>Gulab Jamun — <span>AED 11</span></li>
+            <li>Gajar Halwa — <span>AED 14</span></li>
+            <li>Mint Cooler — <span>AED 17</span></li>
+            <li>Sweet Lassi — <span>AED 12</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Contact section with contact information and a simple form.  The form
+       fields are non‑functional and are meant as placeholders only. -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p><strong>Phone:</strong> <a href="tel:+971528480244">+971 52 848 0244</a></p>
+        <p><strong>Email:</strong> <a href="mailto:spiicebite@gmail.com">spiicebite@gmail.com</a></p>
+        <p><strong>Location:</strong> Dubai, UAE</p>
+      </div>
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        <!-- The button is disabled since backend handling is outside the scope
+             of this static site.  Remove disabled and implement a handler
+             when integrating with a backend. -->
+        <button type="submit" disabled>Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Spice Bite. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

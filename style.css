@@ -1,0 +1,498 @@
+/*
+ * Primary stylesheet for the Spiice Bite website.
+ *
+ * The design makes use of warm neutrals and deep greens to evoke a
+ * welcoming and plant‑forward atmosphere.  Responsive layouts are
+ * achieved with flexbox and CSS grid.  A mobile menu uses a
+ * checkbox toggle to control visibility without relying on
+ * JavaScript.
+ */
+
+/* Reset some basic elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #faf7f2;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header and navigation */
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  min-height: 80vh;
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* The logo container holds the image in the navigation bar.  We don't
+   specify font styles here because the content is an image. */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Size the logo image to fit neatly within the navbar */
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #d6cdc1;
+}
+
+/* Mobile navigation toggle */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle-label span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav-toggle-label span::before {
+  top: -0.6rem;
+}
+.nav-toggle-label span::after {
+  top: 0.6rem;
+}
+
+/* When checkbox checked transform lines into an 'X' */
+.nav-toggle:checked + .nav-toggle-label span {
+  transform: translateY(-50%) rotate(45deg);
+}
+.nav-toggle:checked + .nav-toggle-label span::before {
+  top: 0;
+  transform: rotate(-90deg);
+}
+.nav-toggle:checked + .nav-toggle-label span::after {
+  top: 0;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: rgba(0,0,0,0.85);
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-links li {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  /* Expand menu when toggle is checked */
+  .nav-toggle:checked ~ .nav-links {
+    max-height: 15rem;
+  }
+}
+
+/* Hero content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.btn {
+  background-color: #e8c18c;
+  color: #333;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  /* Add a subtle border and glow to call attention to the primary CTA */
+  border: 2px solid #e8c18c;
+  box-shadow: 0 0 10px rgba(232, 193, 140, 0.6);
+}
+
+.btn:hover {
+  background-color: #d6b079;
+}
+
+/* About section */
+.about {
+  padding: 4rem 2rem;
+  background-color: #f6efe6;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #354e36;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Menu section */
+.menu {
+  padding: 4rem 2rem;
+  background-color: #faf7f2;
+  text-align: center;
+}
+
+.menu h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #354e36;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+  text-align: left;
+}
+
+.card-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #354e36;
+}
+
+.card-content ul {
+  list-style: none;
+}
+
+.card-content li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-content li span {
+  font-weight: bold;
+  color: #354e36;
+}
+
+/* Order Now button and drop-down style */
+.order-wrapper {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-btn {
+  background-color: #2ecc71; /* bright green reminiscent of delivery buttons */
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  /* Add border and glow to highlight the order button */
+  border: 2px solid #2ecc71;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.6);
+}
+
+.order-btn:hover {
+  background-color: #28b862;
+}
+
+.order-btn:active {
+  transform: scale(0.97);
+}
+
+.order-options {
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.order-options a {
+  display: block;
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-options a:hover {
+  background-color: #28b862;
+}
+
+/* When the wrapper has an active class (added by JS), show the options */
+.order-wrapper.active .order-options {
+  display: flex;
+}
+
+/* Hero call‑to‑action buttons container */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  /* Prevent items from stretching to equal height (important when
+     the order drop‑down opens) */
+  align-items: flex-start;
+}
+
+/* Remove extra space above the order button in the hero area */
+header .order-wrapper {
+  margin-top: 0;
+  /* Make the wrapper a positioning context for its drop‑down menu */
+  position: relative;
+}
+
+/* Within the hero buttons, prevent the order wrapper from stretching to fill
+   the available space so that the drop‑down appears neatly below the button. */
+.hero-buttons .order-wrapper {
+  flex: 0 0 auto;
+}
+
+/* Position the hero drop‑down menu absolutely so that it appears
+   below the button instead of affecting sibling layout */
+header .order-wrapper .order-options {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 0.5rem);
+  /* Remove the margin used in the default styling since we set an
+     explicit offset above */
+  margin-top: 0;
+  /* Ensure the drop‑down stacks above other hero elements */
+  z-index: 3;
+}
+
+/* Contact section */
+.contact {
+  padding: 4rem 2rem;
+  background-color: #f6efe6;
+}
+
+/* Gallery section */
+/* The gallery showcases photos of some of the restaurant's dishes.
+   Use a grid layout that automatically adjusts the number of columns
+   based on available space.  Each figure has a subtle shadow and
+   rounded corners to separate it from the background. */
+.gallery {
+  padding: 4rem 2rem;
+  background-color: #faf7f2;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #354e36;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-grid figure {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.gallery-grid figure:hover {
+  transform: translateY(-4px);
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-grid figcaption {
+  padding: 0.75rem 0.5rem;
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #354e36;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  flex: 1 1 300px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+}
+
+.contact-form {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.contact-form button {
+  padding: 0.75rem;
+  background-color: #354e36;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: not-allowed;
+}
+
+.contact-form button:disabled {
+  opacity: 0.6;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #e8c18c;
+  color: #333;
+  font-size: 0.9rem;
+}
