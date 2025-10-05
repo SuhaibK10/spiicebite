@@ -496,3 +496,16 @@ footer {
   color: #333;
   font-size: 0.9rem;
 }
+
+/* Override Order Now button to match Our Menu button */
+.order-btn {
+  background-color: #e8c18c !important;
+  color: #333 !important;
+  padding: 0.75rem 1.5rem !important;
+  border: 2px solid #e8c18c !important;
+  box-shadow: 0 0 10px rgba(232, 193, 140, 0.6) !important;
+}
+
+.order-btn:hover {
+  background-color: #d6b079 !important;
+}
